@@ -12,6 +12,8 @@
 // const totalCompra = calcularTotalCompra(produtos)
 // console.log(totalCompra) // Output: 468.90
 
+
+
 const produtos = [
     { id: 1, nome: 'Camiseta', preco: 29.9, quantidade: 2 },
     { id: 2, nome: 'Calça', preco: 59.9, quantidade: 1 },
@@ -21,12 +23,16 @@ const produtos = [
 
 
 function calcularTotalCompra(produtos) {
-    let total = 0
-    produtos.forEach((produtos) => {
-        total +=  produtos.preco * produtos.quantidade
-    })
-    return total
+
+   const total = produtos.reduce((acumulador, elemento) => {
+        return acumulador + elemento.quantidade * elemento.preco
+
+    }, 0)
+
+    return total.toFixed(2)
+
+    
 }
-const TotalCompra = calcularTotalCompra(produtos)
-console.log(TotalCompra)
+const totalCompra = calcularTotalCompra(produtos)
+console.log(totalCompra)
 
