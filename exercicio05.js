@@ -31,10 +31,21 @@ function aplicarDesconto(estudandes, callback){
 
 
 
-
 const estudantes = [
 { nome: 'João', idade: 20 },
 { nome: 'Maria', idade: 22 },
 { nome: 'Pedro', idade: 18 },
 { nome: 'Ana', idade: 21 }
 ]
+
+const calcularDesconto = (estudante) => {
+    if(estudante.idade < 20){
+        estudante.desconto = 0.1
+    }else{
+        estudante.desconto = 0.05
+    }
+    return estudante
+}
+
+const estudantesComDesconto = aplicarDesconto(estudantes, calcularDesconto)
+console.log(estudantesComDesconto)
